@@ -1,0 +1,11 @@
+{
+  "user_id": "string",
+  "xp": 50,
+  "level": 1,
+  "rank": "Bronze",
+  "streak": 1,
+  "total_completed_tasks": 1,
+  "total_assigned_tasks": 1,
+  "execution_score": 100.0,
+  "last_submission_date": "2026-02-14"
+}

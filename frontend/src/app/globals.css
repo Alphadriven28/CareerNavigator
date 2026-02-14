@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lavender: #C8B6FF;
+  --color-lavender-light: #E0D6FF;
+  --color-babyblue: #B8E0FF;
+  --color-babyblue-light: #D6EDFF;
+  --color-mint: #B5F2C3;
+  --color-mint-light: #D4F8DE;
+  --color-coral: #FFB3B3;
+  --color-coral-light: #FFD6D6;
+  --color-cream: #FFF8EE;
+}
+
+/* ── Base ── */
+@layer base {
+  body {
+    @apply text-gray-800 font-sans antialiased;
+    background: linear-gradient(170deg, #f8f5ff 0%, #f0f7ff 40%, #fffaf3 100%);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: #C8B6FF;
+    color: white;
+  }
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 182, 255, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px rgba(200, 182, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ── Gradient Text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #C8B6FF, #B8E0FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #FFB3B3, #C8B6FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  @apply px-8 py-3 rounded-2xl font-semibold text-white text-sm tracking-wide;
+  background: linear-gradient(135deg, #C8B6FF, #B8E0FF);
+  box-shadow: 0 4px 20px rgba(200, 182, 255, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 30px rgba(200, 182, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  @apply px-6 py-2.5 rounded-2xl font-medium text-sm;
+  background: rgba(200, 182, 255, 0.1);
+  border: 1px solid rgba(200, 182, 255, 0.3);
+  color: #8b7ec8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(200, 182, 255, 0.2);
+}
+
+/* ── Chips ── */
+.chip {
+  @apply px-3 py-1.5 rounded-full text-xs font-medium;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chip-green {
+  background: rgba(181, 242, 195, 0.25);
+  color: #3a9157;
+  border: 1px solid rgba(181, 242, 195, 0.4);
+}
+
+.chip-coral {
+  background: rgba(255, 179, 179, 0.2);
+  color: #c45a5a;
+  border: 1px solid rgba(255, 179, 179, 0.4);
+}
+
+.chip-lavender {
+  background: rgba(200, 182, 255, 0.15);
+  color: #7b6bb5;
+  border: 1px solid rgba(200, 182, 255, 0.3);
+}
+
+/* ── Input ── */
+.input-field {
+  @apply w-full px-4 py-3 rounded-2xl text-sm font-medium outline-none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(200, 182, 255, 0.25);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #C8B6FF;
+  box-shadow: 0 0 0 3px rgba(200, 182, 255, 0.15);
+}
+
+.input-field::placeholder {
+  color: #b0aec2;
+}
+
+/* ── Progress Bar ── */
+.progress-track {
+  @apply w-full h-2.5 rounded-full;
+  background: rgba(200, 182, 255, 0.15);
+  overflow: hidden;
+}
+
+.progress-fill {
+  @apply h-full rounded-full;
+  background: linear-gradient(90deg, #C8B6FF, #B8E0FF);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Upload Zone ── */
+.upload-zone {
+  @apply flex flex-col items-center justify-center gap-3 p-8 rounded-3xl cursor-pointer;
+  border: 2px dashed rgba(200, 182, 255, 0.3);
+  background: rgba(200, 182, 255, 0.04);
+  transition: all 0.3s ease;
+  min-height: 160px;
+}
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color: #C8B6FF;
+  background: rgba(200, 182, 255, 0.08);
+}
+
+.upload-zone.has-file {
+  border-color: #B5F2C3;
+  background: rgba(181, 242, 195, 0.06);
+}
+
+/* ── Spinner ── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(200, 182, 255, 0.3);
+  border-top-color: #C8B6FF;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 182, 255, 0.3);
+  border-radius: 999px;
+}
